@@ -1,25 +1,42 @@
-import { useState } from 'react';
 
-const Car = ({ num1, num2 }) => {
-  const [scorer, setScorer] = useState('');
+// const Car = ({ goal = false}) => {
+//   return<>{goal? <Goal/>:<Missed/>}</>;
+  
+//   // return (
+//   //   <>
+//   //     <h2>I am Anjila {sum}/{sum}</h2>
+//   //     <input 
+//   //       placeholder="Enter Scorer"  id ="Scorer"
+//   //     />
+//   //     <button onClick={() => shoot(document.getElementById("Scorer").value)}>Shoot the ball</button>
+//   //   </>
+//   // );
+// };
 
-  const sum = num1 + num2;
+// const Missed = ()=>{
+//   return <h1>Missed</h1>;
+// };
 
-  const shoot = (msg) => {
-    alert(`${msg} by ${scorer}`);
-  };
+// const Goal = ()=>{
+//   return <h1>Goal</h1>;
+// };
 
-  return (
-    <>
-      <h2>I am Anjila {sum}/{sum}</h2>
-      <input 
-        placeholder="Enter Scorer" 
-        value={scorer} 
-        onChange={(e) => setScorer(e.target.value)} 
-      />
-      <button onClick={() => shoot("Goal...")}>Shoot the ball</button>
-    </>
-  );
-};
+ 
+// export default Car;
 
-export default Car;
+//--------------list---------------------------------------------
+
+
+// const Garage=()=>{
+//   const cars = ["Ford","BMW","Audi"];
+//   //return<>{cars.length>0 && cars.map((car)=><Car Key = {car} brand = {car}/>)}</>
+//   return<>{cars.length>0 && cars.map((car,idx)=><Car Key = {idx} brand = {car}/>)}</>
+// };
+
+// const Car=({brand})=>{
+//   return<div> I am {brand} car </div>
+// };
+
+// export default Garage;
+
+

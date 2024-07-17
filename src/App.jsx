@@ -1,11 +1,12 @@
-import Car from "./Car";
+// import Car from "./Car";
+import Contact from "./Contact";
  const App = ()=>{
   //js logic
 
   //HTML inside return tag
   return (
     <>
-    <Car num1={6} num2={4}/>
+    <Contact  />
     </>
   );
 };
