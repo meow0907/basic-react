@@ -1,3 +1,5 @@
+import {Button,Form} from "react-bootstrap";
+
 const Contact = () => {
     const submitForm = (e) => {
       e.preventDefault();
@@ -20,23 +22,52 @@ const Contact = () => {
     return (
       <div>
         <h1>Contact form</h1>
-        <form id="contactForm" onSubmit={(e) => submitForm(e)}>
-          <label>Name</label>
-          <input placeholder="Enter your name" id="name" required />
-          <label>Gender</label>
-          <select required id="gender">
-            <option value="">Select one</option>
-            <option value="Male">Male</option>
-            <option value="Female">Female</option>
-          </select>
-          <label>Message</label>
-          <textarea rows={6} required id="message"></textarea>
-          <button type="submit">Submit</button>
-          <button onClick={resetForm}>Reset</button>
-        </form>
+        <Form id="contactForm" onSubmit={(e) => submitForm(e)}>
+          <Form.Group className="mb-3">
+            <Form.Label>Email address</Form.Label>
+            <Form.Control
+              type="name"
+              placeholder="Enter your name"
+              id="name"
+              required
+            />
+          </Form.Group>
+          {/* <label>Name</label>
+          <input placeholder="Enter your name" id="name" required /> */}
+          <Form.Group className="mb-3">
+            <Form.Label>Gender</Form.Label>
+            <Form.Select required id="gender">
+              <option value="">Select one</option>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+            </Form.Select>
+          </Form.Group>
+          <Form.Group className="mb-3">
+            <Form.Label>Message</Form.Label>
+            <Form.Control
+              as="textarea"
+              rows={3}
+              placeholder="Enter your message"
+              id="message"
+              required
+            />
+          </Form.Group>
+          <div className="row">
+            <div className="col-md-3">
+              <div className="d-flex justify-content-around align-items-start">
+                <Button variant="primary" type="submit">
+                  Submit
+                </Button>
+                <Button variant="danger" onClick={resetForm}>
+                  Reset
+                </Button>
+              </div>
+            </div>
+          </div>
+        </Form>
         <div id="thankYou"></div>
       </div>
     );
-  };
+    };
   
   export default Contact;

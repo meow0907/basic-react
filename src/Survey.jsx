@@ -1,3 +1,7 @@
+
+
+
+
 const Survey=()=>{
 
     const submitForm=(e)=>{
@@ -9,6 +13,7 @@ const Survey=()=>{
         const checkboxes = document.querySelectorAll('input[name="drink"]:checked');
         checkboxes.forEach((checkbox) => {
             selectedDrinks.push(checkbox.value);
+
         });
 
         console.log("Form submitted with selected drinks:", selectedDrinks.join(", "));

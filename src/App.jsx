@@ -1,6 +1,8 @@
 // import Car from "./Car";
+
 // import Contact from "./Contact";
-//  const App = ()=>{
+// const App = ()=>{
+
 //   return (
 //     <>
 //     <Contact  />
@@ -11,8 +13,23 @@
 
 
 //-----------survey----------------------------------------
-import Survey from "./Survey";
+// import Survey from "./Survey";
+// const App=()=>{
+//   return (<><Survey/></>);
+// };
+// export default App;
+
+//---------------------surveydate-------------------------
+// import SurveyDate from "./Survey1";
+// const App=()=>{
+//   return (<><SurveyDate/></>);
+// };
+// export default App;
+
+//------------------------statehook------------
+import StateHook from "./StateHook";
 const App=()=>{
-  return (<><Survey/></>);
+  return(<><StateHook/></>);
 };
+
 export default App;
