@@ -1,55 +1,94 @@
 
 
-
-
+import React, {useState} from 'react';
+import { Button, Form } from 'react-bootstrap';
 const Survey=()=>{
+
+    const [age, setAge] = useState('');
+    const [birthDate, setBirthDate]= useState('');
+    const [selectedDrinks, setSelectedDrinks] = useState('');
 
     const submitForm=(e)=>{
         e.preventDefault();
-        const age = document.getElementById("age").value;
+        //const age = document.getElementById("age").value;
         console.log("Form submitted with age:", age);
         
-        const selectedDrinks = [];
-        const checkboxes = document.querySelectorAll('input[name="drink"]:checked');
-        checkboxes.forEach((checkbox) => {
-            selectedDrinks.push(checkbox.value);
+        // const selectedDrinks = [];
+        // const checkboxes = document.querySelectorAll('input[name="drink"]:checked');
+        // checkboxes.forEach((checkbox) => {
+        //     selectedDrinks.push(checkbox.value);
 
-        });
+        // });
 
         console.log("Form submitted with selected drinks:", selectedDrinks.join(", "));
 
-        const birthDate = document.getElementById("birthDate").value;
+       // const birthDate = document.getElementById("birthDate").value;
         console.log("Form submitted with birth date:", birthDate);
         };
     
     const handleSliderInput=(e)=>{
-        document.getElementById("age").value = e.target.value;
+        //document.getElementById("age").value = e.target.value;
+        setAge(e.target.value);
+    };
+
+    const handleDrinkChange = (e)=>{
+        const value = e.target.value;
+        setSelectedDrinks((prev)=>
+            e.target.checked ? [...prev,value]:prev.filter((drink)=>drink!==value)
+        );
     };
 
     return (
         <div>
             <h1>Survey form</h1>
-            <form id="surveyForm" onSubmit = {(e) => submitForm(e)}>
+            <Form id="surveyForm" onSubmit = {(e) => submitForm(e)}>
+                <Form.Group className="container mb-3" >
+                    <Form.Label><b>Age</b></Form.Label>
 
-                <label><b>Age</b></label>
-                <input placeholder = "Enter your age" id ="age"  required />
-                <input type="range" id="ageSlider"  min="0" max="100" step="1"  onInput={handleSliderInput}/>
-                <button type="submit">Submit</button><br/>
-                
-                <label><b>What do you want to drink?</b></label><br/>
-                <input type="checkbox" id="tea" name="drink" value="tea"/>
-                <output id="tea">tea</output><br/>
-                <input type="checkbox" id="coffee" name="drink" value="coffee"/>
-                <output id="coffee">coffee</output><br/>
-                <input type="checkbox" id="cold drink" name="drink" value="cold drink"/>
-                <output id="cold drink">cold drink</output><br/>
-                <button type="submit">Submit</button><br/>
+                    <Form.Control
+                    type="Number" placeholder = "Enter your age" id ="age" value={age} 
+                    onChange={(e)=>setAge(e.target.value)}
+                    required />
+                    
 
-                <label><b>Birthdate</b></label>
-                <input type="date" id="birthDate" required/>
-                <button type="submit">Submit</button><br/>
+                    <input type="range" id="ageSlider"  min="0" max="100" step="1"  onInput={handleSliderInput}/><br/>
 
-            </form>
+                    <Button type="submit">Submit</Button><br/>
+                    </Form.Group>
+
+                <fieldset>
+                <Form.Group className='container mb-3' >
+                    <Form.Label><b>What do you want to drink?</b></Form.Label>
+                    <Form.Check
+                         type="checkbox" id="tea" name="drink" label="tea"
+                         onChange={handleDrinkChange}
+                    />
+                    <Form.Check
+                        type="checkbox" id="coffee" name="drink" label="coffee"
+                        onChange={handleDrinkChange}
+
+                    />
+                    <Form.Check
+                        type="checkbox" id="cold drink" name="drink" label="cold drink"
+                        onChange={handleDrinkChange}
+
+                    />
+                    <Button type="submit">Submit</Button>
+
+                </Form.Group> 
+                </fieldset>
+                   
+                <Form.Group className= 'container mb-3' >
+                    <Form.Label><b>Birthdate</b></Form.Label>
+                    <Form.Control
+                        input type="date" id="birthDate" 
+                        onChange={(e)=>setBirthDate(e.target.value)}
+                        required
+                    />
+                    <Button type="submit">Submit</Button>
+
+                </Form.Group>
+            </Form>
         </div>
     );
 };

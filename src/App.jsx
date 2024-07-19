@@ -13,11 +13,11 @@
 
 
 //-----------survey----------------------------------------
-// import Survey from "./Survey";
-// const App=()=>{
-//   return (<><Survey/></>);
-// };
-// export default App;
+import Survey from "./Survey";
+const App=()=>{
+  return (<><Survey/></>);
+};
+export default App;
 
 //---------------------surveydate-------------------------
 // import SurveyDate from "./Survey1";
@@ -27,9 +27,9 @@
 // export default App;
 
 //------------------------statehook------------
-import StateHook from "./StateHook";
-const App=()=>{
-  return(<><StateHook/></>);
-};
+// import StateHook from "./StateHook";
+// const App=()=>{
+//   return(<><StateHook/></>);
+// };
 
-export default App;
+// export default App;

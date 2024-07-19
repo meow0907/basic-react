@@ -16,55 +16,79 @@
 
 // export default StateHook;
 
+import React, { useState } from "react";
+import { Button, Form } from 'react-bootstrap';
 
-import { useState } from "react";
-
-const StateHook=()=>{
-    const [contactForm,setContactForm]=useState({
-        name:"",
-        gender:"",
-        message:"",
-        age:0,
+const StateHook = () => {
+    const [contactForm, setContactForm] = useState({
+        name: "",
+        gender: "",
+        message: "",
+        age: 0,
     });
+    
 
-    const handleSubmit=(e)=>{
+    const handleSubmit = (e) => {
         e.preventDefault();
-        console.log({contactForm});
-    }
-    return(
-        <div>
-            <form onSubmit={(e)=>handleSubmit(e)}>
-                <input placeholder="Enter name"
-                onChange={(e)=>setContactForm((prev)=>{
-                    return{...prev,name:e.target.value};
-                })}/>
+        console.log({ contactForm });
+    };
 
-                <select className="form-select" 
-                onChange={(e)=>setContactForm((prev)=>{
-                    return{...prev,gender:e.target.value};
-                })}
-                >
-                    <option value="">Select gender</option>
-                    <option value="Male">Male</option>
-                    <option value="Female">Female</option>
-                </select>
-                
+    return (
+        <div className="container m-5">
+            <Form onSubmit={handleSubmit}>
+                <Form.Group className="mb-3" controlId="formName">
+                    <Form.Label>Enter name</Form.Label>
+                    <Form.Control
+                        type="text"
+                        placeholder="Enter name"
+                        onChange={(e) => setContactForm((prev) => {
+                            return { ...prev, name: e.target.value };
+                        })}
+                    />
+                </Form.Group>
 
-                <input placeholder="Enter message"
-                onChange={(e)=>setContactForm((prev)=>{
-                    return{...prev,message:e.target.value};
-                })}/>
+                <Form.Group className="mb-3" controlId="formGender">
+                    <Form.Label>Select gender</Form.Label>
+                    <Form.Select
+                        onChange={(e) => setContactForm((prev) => {
+                            return { ...prev, gender: e.target.value };
+                        })}
+                    >
+                        <option value="">Select gender</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                    </Form.Select>
+                </Form.Group>
 
+                <Form.Group className="mb-3" controlId="formMessage">
+                    <Form.Label>Enter message</Form.Label>
+                    <Form.Control
+                        type="text"
+                        placeholder="Enter message"
+                        onChange={(e) => setContactForm((prev) => {
+                            return { ...prev, message: e.target.value };
+                        })}
+                    />
+                </Form.Group>
 
-                <input placeholder="Enter age"
-                onChange={(e)=>setContactForm((prev)=>{
-                    return{...prev,Number:e.target.value};
-                })}/>
+                <Form.Group className="mb-3" controlId="formAge">
+                    <Form.Label>Enter age</Form.Label>
+                    <Form.Control
+                        type="number"
+                        placeholder="Enter age"
+                        onChange={(e) => setContactForm((prev) => {
+                            return { ...prev, age: Number(e.target.value) };
+                        })}
+                    />
+                </Form.Group>
 
-                
-            </form>
+                <Button variant="primary" type="submit">
+                    Submit
+                </Button>
+            </Form>
+
         </div>
-    )
+    );
 };
 
 export default StateHook;
