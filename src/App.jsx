@@ -13,11 +13,11 @@
 
 
 //-----------survey----------------------------------------
-import Survey from "./Survey";
-const App=()=>{
-  return (<><Survey/></>);
-};
-export default App;
+// import Survey from "./Survey";
+// const App=()=>{
+//   return (<><Survey/></>);
+// };
+// export default App;
 
 //---------------------surveydate-------------------------
 // import SurveyDate from "./Survey1";
@@ -33,3 +33,24 @@ export default App;
 // };
 
 // export default App;
+
+//--------------statehookarray-----------
+// import StateHookArray from "./StateHookArray";
+// const App=()=>{
+//   return(<><StateHookArray/></>)
+// };
+// export default App;
+
+//-----------effecthook----------------
+// import Timer from "./EffectHook";
+// const App=()=>{
+//   return(<><Timer/></>)
+// }
+// export default App;
+
+//------recipes----------------
+import EffectHook from "./EffectHook";
+const App=()=>{
+  return(<><EffectHook/></>)
+};
+export default App;
